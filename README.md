@@ -9,7 +9,7 @@ Se puede replicar instalando Python y sus dependencias dentro de la maquina virt
 - Numpy
 - Pillow
 ## Mapa y explicación 
-<img width="619" height="367" alt="sleekshot" src="https://github.com/user-attachments/assets/76b881c7-6dac-4e4d-bafa-6416661d27d5" />
+<img width="646" height="395" alt="sleekshot" src="https://github.com/user-attachments/assets/c050a178-18c5-42f7-a504-75a3a08ad0a7" />
 
 El archivo de TestEstación.py es el maestro, va ejecutando todos los test definidos en él, en todos los elementos seleccionados. Estos elementos 
 también tienen que tener definidas sus posiciones y todas las características o atributos necesarios en el json. 
