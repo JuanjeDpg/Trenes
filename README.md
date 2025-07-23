@@ -10,6 +10,7 @@ Se puede replicar instalando Python y sus dependencias dentro de la maquina virt
 - Pillow
 ## Mapa y explicación 
 <img width="619" height="367" alt="sleekshot" src="https://github.com/user-attachments/assets/76b881c7-6dac-4e4d-bafa-6416661d27d5" />
+
 El archivo de TestEstación.py es el maestro, va ejecutando todos los test definidos en él, en todos los elementos seleccionados. Estos elementos 
 también tienen que tener definidas sus posiciones y todas las características o atributos necesarios en el json. 
 Los archivos de TEST_XX.py son traducciones del protocolo de pruebas a código. Para poder funcionar correctamente se ha creado una librería de 
