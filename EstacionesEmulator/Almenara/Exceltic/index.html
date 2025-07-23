@@ -1,0 +1,465 @@
+<!DOCTYPE html><html><head>
+    <title>Exceltic UnOfficial App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.svg">
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      h1 {
+        font-family: 'Open Sans', bold; /* Tipografía*/
+        font-size: 3em; /* Tamaño de letra más grande */
+        margin-left: 30px;
+        color: #fff; /* Título en blanco */
+      }
+      h2 {
+        font-family: 'Open Sans', bold; /* Tipografía*/
+        font-size: 3em; /* Tamaño de letra más grande */
+        margin-top: 8px;
+        text-align: center;
+        color: rgb(248, 210, 159); /* Título en blanco */
+      }
+      img {
+        max-width: 250px;
+        height: auto;
+      }
+      .details-button {
+        /* margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: yellow; */
+        border: none; /* Quitar el borde */
+        border-radius: 5px; /* Opcional: añadir bordes redondeados */
+      }
+      .senales-button {
+        border: none; /* Quitar el borde */
+        border-radius: 5px; /* Opcional: añadir bordes redondeados */
+        background-color: white;
+        /* display: none; */
+      }
+      .dobleOcupacion {
+        border: none; /* Quitar el borde */
+        border-radius: 5px; /* Opcional: añadir bordes redondeados */
+      }
+      .logo {
+        position: relative;
+        left: 50px; /* Ajusta este valor para desplazar hacia la derecha */
+      }
+      #CV-buttons {
+        margin-top: 93px; /* Espacio entre las imágenes y los botones */
+        text-align: center;
+      }
+      #CV-buttons2 {
+        margin-top: 38px; /* Espacio entre las imágenes y los botones */
+        text-align: center;
+      }
+      .bombilla {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        text-align: center;
+      }
+      .submenu {     
+        background-color: grey; 
+        padding: 5px; 
+        border-radius: 5px; 
+        border: 1px solid #ccc;
+        display: none; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 5px;
+      }
+
+    </style>
+  </head>
+
+  <body style="background-color: rgb(32, 32, 32)">
+    <!-- Workaround since the lib does not support import as ES module. -->
+    <script src="../assets/logger.min-B5tPUEvh.js"></script>
+    <script>
+      const supported = window.customElements && document.body.attachShadow;
+      if (!supported) {
+        alert(
+          'You are using an old unsupported browser. \nPlease upgrade the browser to be able to use the ITS950 Dashboard.'
+        );
+      }
+    </script>
+
+    <!-- <div id="TipoDeAncho">
+    <button class="details-button" id="TipoAncho" style="background-color: white;
+    width: 50px;
+    height: 200px;
+    border-radius: 20px;
+    float: right;">Ancho Común</button>
+    </div> -->
+
+<!-- Contenedor del botón deslizadera para el tipo de ancho -->
+  <div id="RuedaFija" style="
+  position: absolute;
+  right: 50px;
+  top: 60px;
+  width: 185px;
+  height: 100px;
+  border-radius: 10px;
+  float: right;
+  background-color: rgb(11, 11, 11);"></div>
+    <div id="via" style="
+    position: absolute;
+    right: 50px;
+    top: 150px;
+    width: 185px;
+    height: 10px;
+    float: right;
+    background-color: grey;"></div>
+    <div id="eje" style="
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    width: 185px;
+    height: 10px;
+    background-color: rgb(255, 107, 38);"></div>
+    <div id="RuedaFija" style="
+    position: absolute;
+    right: 50px;
+    top: 60px;
+    width: 50px;
+    height: 100px;
+    border-radius: 10px;
+    float: right;
+    background-color: whitesmoke;"></div>
+    <button class="details-button" id="TipoAncho" style="
+    position: absolute;
+    right: 150px;
+    top: 60px;
+    float: right;
+    width: 50px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px"
+    >Ancho Común</button>
+
+    <button class="dobleOcupacion" id="dobleOcupacion" style="
+    position: absolute;
+    right: 250px;
+    top: 60px;
+    float: right;
+    width: 75px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px"
+    >Ocupación simple</button>
+
+    <button class="dobleOcupacion" id="mostrarSenales" style="
+    position: absolute;
+    right: 340px;
+    top: 60px;
+    float: right;
+    width: 75px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px"
+    >Mostrar Senales</button>
+
+    <!-- <button class="dobleOcupacion" id="mostrarAgujas" style="
+    position: absolute;
+    right: 340px;
+    top: 115px;
+    float: right;
+    width: 75px;
+    height: 45px;
+    background-color: white;
+    border-radius: 10px"
+    >Mostrar Agujas</button> -->
+
+    <div class="Title">
+      <h1>Exceltic unofficial App X Alstom Ebilock</h1>
+
+      <img src="Assets/ExcelticNoBack.png" style="margin-left: 30px;">
+      <img src="Assets/alstom-logo-white.svg" class="logo">
+    </div>
+  
+    <div class="Station">
+    <h2>ALMENARA</h2>
+    </div>
+
+    <div id="CV-buttons">
+      <button class="details-button" id="CV6" style="background-color: yellow; width: 400px;">CV6</button>
+    </div>
+
+    <div id="CV-buttons2">
+      <button class="details-button" id="CVAM1" style="background-color: yellow; width: 100px; margin-right: 100px;">CVAM1</button>
+      <button class="details-button" id="CV4" style="background-color: yellow; width: 400px;">CV4</button>
+      <button class="details-button" id="CVAM2" style="background-color: yellow; width: 100px; margin-left: 100px;">CVAM2</button>
+
+      <button class="details-button" id="CVA10" style="background-color: yellow; position: absolute; top: 377px; height: 93px; right: 660px; width: 95px;">CVA10</button>
+      <button class="details-button" id="CVA9" style="background-color: yellow; position: absolute; top: 433px; height: 38px; left: 660px; width: 95px;">CVA9</button>
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CV454" style="background-color: yellow; width: 100px;">CV454</button>
+    <button class="details-button" id="CVE_3" style="background-color: yellow; width: 100px">CVE_3</button>
+    <button class="details-button" id="CVE3" style="background-color: yellow; width: 100px">CVE3</button>
+    <button class="details-button" id="CV2" style="background-color: yellow; width: 400px; margin-left: 100px;">CV2</button>
+    <button class="details-button" id="CVE2" style="background-color: yellow; width: 100px; margin-left: 100px;">CVE2</button>
+    <button class="details-button" id="CVE_2" style="background-color: yellow; width: 100px;">CVE_2</button>
+    <button class="details-button" id="CV368" style="background-color: yellow; width: 100px;">CV368</button>
+
+    <button class="details-button" id="CVA4" style="background-color: yellow; position: absolute; top: 475px; height: 55px; right: 660px; width: 95px;">CVA4</button>
+    <button class="details-button" id="CVA3" style="background-color: yellow; position: absolute; top: 475px; height: 55px; left: 660px; width: 95px;">CVA3</button>
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CV473" style="background-color: yellow; width: 100px;">CV473</button>
+    <button class="details-button" id="CVE_1" style="background-color: yellow; width: 100px">CVE_1</button>
+    <button class="details-button" id="CVE1" style="background-color: yellow; width: 100px">CVE1</button>
+    <button class="details-button" id="CV1" style="background-color: yellow; width: 400px; margin-left: 100px;">CV1</button>
+    <button class="details-button" id="CVE4" style="background-color: yellow; width: 100px; margin-left: 100px;">CVE4</button>
+    <button class="details-button" id="CVE_4" style="background-color: yellow; width: 100px;">CVE_4</button>
+    <button class="details-button" id="CV389" style="background-color: yellow; width: 100px;">CV389</button>
+
+    <button class="details-button" id="CVA2" style="background-color: yellow; position: absolute; top: 535px; height: 55px; right: 660px; width: 95px;">CVA2</button>
+    <button class="details-button" id="CVA1" style="background-color: yellow; position: absolute; top: 535px; height: 90px; left: 660px; width: 95px;">CVA1</button>
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CV3" style="background-color: yellow; width: 400px; margin-left: 205px;">CV3</button>
+    <button class="details-button" id="CVAM4" style="background-color: yellow; width: 100px; margin-left: 100px;">CVAM4</button>
+
+    <button class="details-button" id="CVA14" style="background-color: yellow; position: absolute; top: 595px; height: 33px; right: 660px; width: 95px;">CVA14</button>
+    </div>
+
+
+    <!-- Marco de botón de prueba de señal - TODO POSICIONES ABSOLUTAS - Por encima de los CV ya creados MENU TOP-25 RIGHT-80 -->
+    <button class="senales-button" id="senalS2_1" style="position: absolute; top: 533px; height: 16px; right: 1110px; width: 45px;">S2/1</button>  
+    <div class="submenu" id="submenuS2_1" style="position: absolute; top: 505px; right: 1030px;">
+      <button class="bombilla" id="V_S2_1" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S2_1" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S2_1" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S2_1" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S2_1" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S2_1" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS1_1" style="position: absolute; top: 533px; height: 16px; right: 760px; width: 45px;">S1/1</button>  
+    <div class="submenu" id="submenuS1_1" style="position: absolute; top: 508px; right: 680px;">
+      <button class="bombilla" id="V_S1_1" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S1_1" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S1_1" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S1_1" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S1_1" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S1_1" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS2_2" style="position: absolute; top: 475px; height: 16px; right: 1110px; width: 45px;">S2/2</button>  
+    <div class="submenu" id="submenuS2_2" style="position: absolute; top: 450px; right: 1030px;">
+      <button class="bombilla" id="V_S2_2" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S2_2" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S2_2" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S2_2" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S2_2" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S2_2" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS1_2" style="position: absolute; top: 475px; height: 16px; right: 760px; width: 45px;">S1/2</button>  
+    <div class="submenu" id="submenuS1_2" style="position: absolute; top: 450px; right: 680px;">
+      <button class="bombilla" id="V_S1_2" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S1_2" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S1_2" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S1_2" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S1_2" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S1_2" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS2_3" style="position: absolute; top: 590px; height: 16px; right: 1110px; width: 45px;">S2/3</button>  
+    <div class="submenu" id="submenuS2_3" style="position: absolute; top: 565px; right: 1030px;">
+      <button class="bombilla" id="V_S2_3" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S2_3" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S2_3" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S2_3" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S2_3" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S2_3" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS2_4" style="position: absolute; top: 415px; height: 16px; right: 1110px; width: 45px;">S2/4</button>  
+    <div class="submenu" id="submenuS2_4" style="position: absolute; top: 390px; right: 1030px;">
+      <button class="bombilla" id="V_S2_4" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S2_4" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S2_4" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S2_4" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S2_4" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S2_4" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS1_3" style="position: absolute; top: 590px; height: 16px; right: 760px; width: 45px;">S1/3</button>  
+    <div class="submenu" id="submenuS1_3" style="position: absolute; top: 565px; right: 680px;">
+      <button class="bombilla" id="V_S1_3" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S1_3" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S1_3" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S1_3" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S1_3" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S1_3" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS1_4" style="position: absolute; top: 415px; height: 16px; right: 760px; width: 45px;">S1/4</button>  
+    <div class="submenu" id="submenuS1_4" style="position: absolute; top: 390px; right: 680px;">
+      <button class="bombilla" id="V_S1_4" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S1_4" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S1_4" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S1_4" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S1_4" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S1_4" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalS1_6" style="position: absolute; top: 358px; height: 16px; right: 760px; width: 45px;">S1/6</button>  
+    <div class="submenu" id="submenuS1_6" style="position: absolute; top: 333px; right: 680px;">
+      <button class="bombilla" id="V_S1_6" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_S1_6" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_S1_6" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_S1_6" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_S1_6" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_S1_6" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalM2" style="position: absolute; top: 415px; height: 16px; right: 610px; width: 45px;">M2</button>  
+    <div class="submenu" id="submenuM2" style="position: absolute; top: 390px; right: 530px;">
+      <button class="bombilla" id="R_M2" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_M2" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_M2" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_M2" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalR2" style="position: absolute; top: 475px; height: 16px; right: 610px; width: 45px;">R2</button>  
+    <div class="submenu" id="submenuR2" style="position: absolute; top: 450px; right: 660px;">
+      <button class="bombilla" id="R_R2" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_R2" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_R2" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_R2" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalR4" style="position: absolute; top: 533px; height: 16px; right: 610px; width: 45px;">R4</button>  
+    <div class="submenu" id="submenuR4" style="position: absolute; top: 508px; right: 660px;">
+      <button class="bombilla" id="R_R4" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_R4" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_R4" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_R4" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalM4" style="position: absolute; top: 590px; height: 16px; right: 610px; width: 45px;">M4</button>  
+    <div class="submenu" id="submenuM4" style="position: absolute; top: 565px; right: 530px;">
+      <button class="bombilla" id="R_M4" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_M4" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_M4" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_M4" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalM1" style="position: absolute; top: 415px; height: 16px; right: 1265px; width: 45px;">M1</button>  
+    <div class="submenu" id="submenuM1" style="position: absolute; top: 390px; right: 1185px;">
+      <button class="bombilla" id="R_M1" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_M1" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_M1" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_M1" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalR3" style="position: absolute; top: 475px; height: 16px; right: 1265px; width: 45px;">R3</button>  
+    <div class="submenu" id="submenuR3" style="position: absolute; top: 450px; right: 1185px;">
+      <button class="bombilla" id="R_R3" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_R3" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_R3" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_R3" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalR1" style="position: absolute; top: 533px; height: 16px; right: 1265px; width: 45px;">R1</button>  
+    <div class="submenu" id="submenuR1" style="position: absolute; top: 508px; right: 1185px;">
+      <button class="bombilla" id="R_R1" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_R1" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_R1" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_R1" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE2" style="position: absolute; top: 475px; height: 16px; right: 505px; width: 45px;">E2</button>  
+    <div class="submenu" id="submenuE2" style="position: absolute; top: 450px; right: 425px;">
+      <button class="bombilla" id="V_E2" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E2" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E2" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E2" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E2" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E2" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE4" style="position: absolute; top: 533px; height: 16px; right: 505px; width: 45px;">E4</button>  
+    <div class="submenu" id="submenuE4" style="position: absolute; top: 508px; right: 425px;">
+      <button class="bombilla" id="V_E4" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E4" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E4" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E4" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E4" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E4" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE_2" style="position: absolute; top: 475px; height: 16px; right: 375px; width: 45px;">E_2</button>  
+    <div class="submenu" id="submenuE_2" style="position: absolute; top: 450px; right: 300px;">
+      <button class="bombilla" id="V_E_2" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E_2" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E_2" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E_2" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E_2" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E_2" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE_4" style="position: absolute; top: 533px; height: 16px; right: 375px; width: 45px;">E_4</button>  
+    <div class="submenu" id="submenuE_4" style="position: absolute; top: 508px; right: 300px;">
+      <button class="bombilla" id="V_E_4" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E_4" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E_4" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E_4" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E_4" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E_4" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE3" style="position: absolute; top: 475px; height: 16px; right: 1366px; width: 45px;">E3</button>  
+    <div class="submenu" id="submenuE3" style="position: absolute; top: 450px; right: 1410px;">
+      <button class="bombilla" id="V_E3" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E3" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E3" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E3" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E3" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E3" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE1" style="position: absolute; top: 533px; height: 16px; right: 1366px; width: 45px;">E1</button>  
+    <div class="submenu" id="submenuE1" style="position: absolute; top: 508px; right: 1410px;">
+      <button class="bombilla" id="V_E1" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E1" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E1" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E1" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E1" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E1" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE_3" style="position: absolute; top: 475px; height: 16px; right: 1490px; width: 45px;">E_3</button>  
+    <div class="submenu" id="submenuE_3" style="position: absolute; top: 450px; right: 1530px;">
+      <button class="bombilla" id="V_E_3" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E_3" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E_3" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E_3" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E_3" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E_3" style="background-color: white;">BC</button>
+    </div>
+
+    <button class="senales-button" id="senalE_1" style="position: absolute; top: 533px; height: 16px; right: 1490px; width: 45px;">E_1</button>  
+    <div class="submenu" id="submenuE_1" style="position: absolute; top: 508px; right: 1530px;">
+      <button class="bombilla" id="V_E_1" style="background-color: limegreen;">V</button> <!-- darkgreen -->
+      <button class="bombilla" id="A_E_1" style="background-color: yellow;">A</button> <!-- darkgoldenrod -->
+      <button class="bombilla" id="R_E_1" style="background-color: red;">R</button> <!-- darkred -->
+      <button class="bombilla" id="BV_E_1" style="background-color: white;">BV</button> <!-- grey -->
+      <button class="bombilla" id="BH_E_1" style="background-color: white;">BH</button>
+      <button class="bombilla" id="BC_E_1" style="background-color: white;">BC</button>
+    </div>
+    
+    <juanje></juanje>
+  
+
+<script type="module" src="./juanje.js"></script></body></html>

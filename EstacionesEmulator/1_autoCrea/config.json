@@ -1,0 +1,43 @@
+[
+  {
+    "id": "AE",
+    "label": "ALMENARA",
+    "type": "estacion"
+  },
+  {
+    "id": "CV1",
+    "label": "CV1",
+    "style": "background-color: yellow; position: absolute; top: 280px; left: 562px; width: 200px; height: 20px;",
+    "type": "cv"
+  },
+  {
+    "id": "CVA7",
+    "label": "CVA7",
+    "style": "background-color: yellow; position: absolute; top: 280px; left: 782px; width: 150px; height: 50px;",
+    "type": "cv"
+  },
+  {
+    "id": "CV2",
+    "label": "CV2",
+    "style": "background-color: yellow; position: absolute; top: 313px; left: 560px; width: 200px; height: 20px;",
+    "type": "cv"
+  },
+  {
+    "id": "S1_1",
+    "label": "S1_1",
+    "style": "background-color: white; position: absolute; top: 582px; left: 162px; width: 50px; height: 30px;",
+    "type": "signal"
+  },
+  {
+    "id": "S1_2",
+    "label": "S1_2",
+    "style": "background-color: white; position: absolute; top: 586px; left: 243px; width: 50px; height: 30px;",
+    "type": "signal"
+  },
+  {
+    "id": "R2",
+    "label": "R2",
+    "style": "background-color: white; position: absolute; top: 584px; left: 338px; width: 50px; height: 30px;",
+    "type": "signal"
+  }
+]

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas con Grilla</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="mnemonico" placeholder="Nombre del mnemónico">
+    <input type="text" id="nombreEstacion" placeholder="Nombre de la estación">
+    <button id="setMnemonico">Establecer</button>
+    <button id="infoEstacion" style = "background-color: red; border: none; border-radius: 5px; margin-right: 200px;">Sin Establecer</button>
+
+    <!-- Es necesario clicar para que se guarde/registre el nombre empleado -->
+    <input type="text" id="buttonName" placeholder="Nombre del botón">
+    <button id="setName">Establecer Nombre CV</button>
+    <button id="info" style = "background-color: red; border: none; border-radius: 5px;">Sin Establecer</button>
+    <button id="JsonCompleto" style="margin-left: 200px;">Sacar Json Completo</button>
+
+    <!-- Ajustar a la pantalla -->
+    <canvas id="canvas" width="1900" height="900"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        // Ajustar para tener CVs mas finos (por ejemplo, para Sagunto)
+        const gridSize = 20;
+
+        document.getElementById('setMnemonico').addEventListener('click', () => {
+            const nombreEstacion = document.getElementById('nombreEstacion').value;
+            const nombreMnemonico = document.getElementById('mnemonico').value;
+            // Status Info del nombre establecido
+            estadoNM = document.getElementById('infoEstacion');
+            estadoNM.style.backgroundColor = 'limegreen';
+            estadoNM.innerText = `${nombreEstacion} ${nombreMnemonico}`;
+            const header = { "id": nombreMnemonico, "label": nombreEstacion, "type": "estacion" };
+            buttons.push(header);
+        })
+
+        const buttons = [];
+        let startX, startY, isDragging = false;
+
+        let nombreDelBoton = '';
+        let tipoDeBoton = '';
+        document.getElementById('setName').addEventListener('click', () => {
+            nombreDelBoton = document.getElementById('buttonName').value;
+            // Status Info del nombre establecido
+            estado = document.getElementById('info');
+            estado.style.backgroundColor = 'limegreen';
+            estado.innerText = "Establecido";
+
+            if (nombreDelBoton.startsWith("CV")) {
+                tipoDeBoton = "cv";
+                color = "yellow";
+            } else if (nombreDelBoton.startsWith("A") || nombreDelBoton.startsWith("P") || nombreDelBoton.startsWith("C")) {
+                tipoDeBoton = "point";
+                color = "grey";
+            } else { // Señales por S, E, R, M... Con el "else" no hace falta definirlo
+                tipoDeBoton = "signal";
+                color = "white";
+            }
+        })
+
+        function drawGrid() {
+            for (let x = 0; x <= canvas.width; x += gridSize) {
+                for (let y = 0; y <= canvas.height; y += gridSize) {
+                    ctx.strokeRect(x, y, gridSize, gridSize);
+                }
+            }
+        }
+
+        // =============================================================
+        // Ajustar este retorno según lo que se quiera tener en el JSON
+        // =============================================================
+        function getCell(x, y) {
+            return {
+                top: Math.floor(y / gridSize) * gridSize,
+                left: Math.floor(x / gridSize) * gridSize,
+                width: gridSize,
+                height: gridSize
+            };
+        }
+        // =============================================================
+
+        function highlightArea(start, end) {
+            const top = Math.min(start.top, end.top);
+            const left = Math.min(start.left, end.left);
+            const width = Math.abs(end.left - start.left) + gridSize;
+            const height = Math.abs(end.top - start.top) + gridSize;
+
+            if (nombreDelBoton.startsWith("CV")) {
+                colorPx = "yellow";
+            } else if (nombreDelBoton.startsWith("A") || nombreDelBoton.startsWith("P") || nombreDelBoton.startsWith("C")) {
+                colorPx = "grey";
+            } else { // Señales por S, E, R, M... Con el "else" no hace falta definirlo
+                colorPx = "red";
+            }
+
+            ctx.fillStyle = colorPx;
+            ctx.fillRect(left, top, width, height);
+            ctx.strokeRect(left, top, width, height);
+            ctx.fillStyle = 'black';
+            ctx.font = '12px Arial';
+            ctx.fillText(nombreDelBoton, left + 5, top + 15)
+            let style = 'background-color: white; position: absolute;';
+            return {style, top, left, width, height };
+        }
+
+        canvas.addEventListener('mousedown', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            startX = event.clientX - rect.left;
+            startY = event.clientY - rect.top;
+            isDragging = true;
+        });
+
+        canvas.addEventListener('mouseup', (event) => {
+            if (isDragging) {
+                const rect = canvas.getBoundingClientRect();
+                const endX = event.clientX - rect.left;
+                const endY = event.clientY - rect.top;
+                const startCell = getCell(startX, startY);
+                const endCell = getCell(endX, endY);
+                const area = highlightArea(startCell, endCell);
+                const button = {
+                    id: nombreDelBoton,
+                    label: nombreDelBoton,
+                    //...area,
+                    style: `background-color: ${color}; position: absolute; top: ${area.top}px; left: ${area.left}px; width: ${area.width}px; height: ${area.height}px;`,
+                    type: tipoDeBoton
+                };
+
+                buttons.push(button);
+                console.log(JSON.stringify(button, null, 2));
+                isDragging = false;
+            }
+            // Status Info del nombre establecido
+            estado = document.getElementById('info');
+            estado.style.backgroundColor = 'red';
+            estado.innerText = "Sin Establecer";
+        });
+
+        document.getElementById('JsonCompleto').addEventListener('click', () => {
+            console.log('\n\nAquí está el JSON completo: \n\n\n\n')
+            console.log(JSON.stringify(buttons, null, 2));
+            mensaje = JSON.stringify(buttons, null, 2);
+            alert('Se va a descargar el archivo cv_config.json\n\
+También puedes verlo en la consola\n\
+(F12 o "ClickDerecho + inspeccionar")');
+            
+            const blob = new Blob([mensaje], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement("a");
+            a.href = url;
+            const nombreEstacion = document.getElementById('nombreEstacion').value;
+            a.download = `config_${nombreEstacion}.json`;
+            a.click();
+
+            URL.revokeObjectURL(url);
+        })
+
+        drawGrid();     
+
+    </script>
+</body>
+</html>

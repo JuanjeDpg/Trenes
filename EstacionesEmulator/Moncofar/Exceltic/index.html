@@ -1,0 +1,187 @@
+<!DOCTYPE html><html><head>
+    <title>Exceltic UnOfficial App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/favicon.svg">
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      h1 {
+        font-family: 'Open Sans', bold; /* Tipografía*/
+        font-size: 3em; /* Tamaño de letra más grande */
+        margin-left: 30px;
+        color: #fff; /* Título en blanco */
+      }
+      h2 {
+        font-family: 'Open Sans', bold; /* Tipografía*/
+        font-size: 3em; /* Tamaño de letra más grande */
+        margin-top: 20px;
+        text-align: center;
+        color: rgb(248, 210, 159); /* Título en blanco */
+      }
+      img {
+        max-width: 250px;
+        height: auto;
+      }
+      .details-button {
+        /* margin: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: yellow; */
+        border: none; /* Quitar el borde */
+        border-radius: 5px; /* Opcional: añadir bordes redondeados */
+      }
+
+      .logo {
+        position: relative;
+        left: 50px; /* Ajusta este valor para desplazar hacia la derecha */
+      }
+      #CV-buttons {
+        margin-top: 100px; /* Espacio entre las imágenes y los botones */
+        text-align: center;
+      }
+      #CV-buttons2 {
+        margin-top: 20px; /* Espacio entre las imágenes y los botones */
+        text-align: center;
+      }
+
+    </style>
+  </head>
+
+  <body style="background-color: rgb(32, 32, 32)">
+    <!-- Workaround since the lib does not support import as ES module. -->
+    <script src="../assets/logger.min-B5tPUEvh.js"></script>
+    <script>
+      const supported = window.customElements && document.body.attachShadow;
+      if (!supported) {
+        alert(
+          'You are using an old unsupported browser. \nPlease upgrade the browser to be able to use the ITS950 Dashboard.'
+        );
+      }
+    </script>
+
+    <!-- <div id="TipoDeAncho">
+    <button class="details-button" id="TipoAncho" style="background-color: white;
+    width: 50px;
+    height: 200px;
+    border-radius: 20px;
+    float: right;">Ancho Común</button>
+    </div> -->
+
+<!-- Contenedor del botón deslizadera para el tipo de ancho -->
+  <div id="RuedaFija" style="
+  position: absolute;
+  right: 50px;
+  top: 60px;
+  width: 185px;
+  height: 100px;
+  border-radius: 10px;
+  float: right;
+  background-color: rgb(11, 11, 11);"></div>
+    <div id="via" style="
+    position: absolute;
+    right: 50px;
+    top: 150px;
+    width: 185px;
+    height: 10px;
+    float: right;
+    background-color: grey;"></div>
+    <div id="eje" style="
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    width: 185px;
+    height: 10px;
+    background-color: rgb(255, 107, 38);"></div>
+    <div id="RuedaFija" style="
+    position: absolute;
+    right: 50px;
+    top: 60px;
+    width: 50px;
+    height: 100px;
+    border-radius: 10px;
+    float: right;
+    background-color: whitesmoke;"></div>
+    <button class="details-button" id="TipoAncho" style="
+    position: absolute;
+    right: 150px;
+    top: 60px;
+    float: right;
+    width: 50px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px"
+    >Ancho Común</button>
+
+
+    <div class="Title">
+      <h1>Exceltic unofficial App X Alstom Ebilock</h1>
+
+      <img src="Assets/ExcelticNoBack.png" style="margin-left: 30px;">
+      <img src="Assets/alstom-logo-white.svg" class="logo">
+    </div>
+  
+    <div class="Station">
+    <h2>MONCÓFAR</h2>
+    </div>
+
+    <div id="CV-buttons">
+    <button class="details-button" id="CV3" style="background-color: yellow; width: 400px;">CV3</button>
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CV491" style="background-color: yellow; width: 100px;">CV491</button>
+    <button class="details-button" id="CVE_4" style="background-color: yellow; width: 100px">CVE_4</button>
+    <button class="details-button" id="CVE4" style="background-color: yellow; width: 100px">CVE4</button>
+    <button class="details-button" id="CV1" style="background-color: yellow; width: 400px; margin-left: 100px;">CV1</button>
+    <button class="details-button" id="CVE1" style="background-color: yellow; width: 100px; margin-left: 100px;">CVE1</button>
+    <button class="details-button" id="CVE_1" style="background-color: yellow; width: 100px;">CVE_1</button>
+    <button class="details-button" id="CV577" style="background-color: yellow; width: 100px;">CV577</button>
+
+    <button class="details-button" id="CVA1" style="background-color: yellow; position: absolute; top: 395px; height: 66px; right: 660px; width: 95px;">CVA1</button>
+    <button class="details-button" id="CVA2" style="background-color: yellow; position: absolute; top: 395px; height: 66px; left: 660px; width: 95px;">CVA2</button>
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CV474" style="background-color: yellow; width: 100px;">CV474</button>
+    <button class="details-button" id="CVE_2" style="background-color: yellow; width: 100px">CVE_2</button>
+    <button class="details-button" id="CVE2" style="background-color: yellow; width: 100px">CVE2</button>
+    <button class="details-button" id="CV2" style="background-color: yellow; width: 400px; margin-left: 100px;">CV2</button>
+    <button class="details-button" id="CVE3" style="background-color: yellow; width: 100px; margin-left: 100px;">CVE3</button>
+    <button class="details-button" id="CVE_3" style="background-color: yellow; width: 100px;">CVE_3</button>
+    <button class="details-button" id="CV554" style="background-color: yellow; width: 100px;">CV554</button>
+
+    <button class="details-button" id="CVA3" style="background-color: yellow; position: absolute; top: 464px; height: 38px; right: 660px; width: 95px;">CVA3</button>
+    <button class="details-button" id="CVA4" style="background-color: yellow; position: absolute; top: 464px; height: 38px; left: 660px; width: 95px;">CVA4</button>
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CVAM2" style="background-color: yellow; width: 100px">CVAM2</button>
+    <button class="details-button" id="CV4" style="background-color: yellow; width: 400px; margin-left: 100px;">CV4</button>
+    <button class="details-button" id="CVAM1" style="background-color: yellow; width: 100px; margin-left: 100px;">CVAM1</button>
+
+    <button class="details-button" id="CVA7" style="background-color: yellow; position: absolute; top: 505px; height: 53px; right: 660px; width: 95px;">CVA7</button>
+    <button class="details-button" id="CVA10" style="background-color: yellow; position: absolute; top: 505px; height: 53px; left: 660px; width: 95px;">CVA10</button>
+    </div>
+
+    <div id="CV-buttons">
+    <button class="details-button" id="CV6" style="background-color: yellow; width: 400px;">CV6</button>
+
+    <button class="details-button" id="CVA13" style="background-color: yellow; position: absolute; top: 560px; height: 133px; right: 660px; width: 95px;">CVA13</button>
+    <button class="details-button" id="CVA16" style="background-color: yellow; position: absolute; top: 635px; height: 28px; left: 660px; width: 95px;">CVA16</button>
+    <button class="details-button" id="CVA18" style="background-color: yellow; position: absolute; top: 665px; height: 28px; left: 660px; width: 95px;">CVA18</button>
+
+    </div>
+
+    <div id="CV-buttons2">
+    <button class="details-button" id="CV8" style="background-color: red; width: 400px;">Vías 8 y 10</button>
+    </div>
+
+    <juanje></juanje>
+  
+
+<script type="module" src="./juanje.js"></script></body></html>

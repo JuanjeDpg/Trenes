@@ -1,0 +1,22 @@
+[
+  {
+    "id": "CV1",
+    "label": "CV1",
+    "style": "background-color: yellow; position: absolute; top: 265px; left: 247px; width: 100px;"
+  },
+  {
+    "id": "CV2",
+    "label": "CV2",
+    "style": "background-color: yellow; position: absolute; top: 283px; left: 390px; width: 100px;"
+  },
+  {
+    "id": "CV3",
+    "label": "CV3",
+    "style": "background-color: yellow; position: absolute; top: 306px; left: 470px; width: 100px;"
+  },
+  {
+    "id": "CV4",
+    "label": "CV4",
+    "style": "background-color: yellow; position: absolute; top: 291px; left: 629px; width: 100px;"
+  }
+]

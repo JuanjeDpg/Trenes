@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head>
+  <title>Exceltic UnOfficial App</title>
+  <meta charset="uft-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/favicon.svg">
+  <style>
+    html,
+    body { 
+      margin: 0; 
+      padding: 0; 
+      height: 100%; 
+    }
+    h1 {
+      font-family: 'Open Sans', bold; /* Tipografía*/
+      font-size: 3em; /* Tamaño de letra más grande */
+      margin-left: 30px;
+      color: #fff; /* Título en blanco */
+      }
+    h2 {
+      font-family: 'Open Sans', bold; /* Tipografía*/
+      font-size: 3em; /* Tamaño de letra más grande */
+      margin-top: 8px;
+      text-align: center;
+      color: rgb(248, 210, 159); /* Título en blanco */
+    }
+    img {
+      max-width: 250px;
+      height: auto;
+    }
+    .details-button { 
+      border: none; 
+      border-radius: 5px; 
+    }
+    .dobleOcupacion {
+      border: none; /* Quitar el borde */
+      border-radius: 5px; /* Opcional: añadir bordes redondeados */
+    }
+    #TipoAncho { 
+      position: absolute; 
+      right: 150px; 
+      top: 60px; 
+      width: 50px; 
+      height: 100px; 
+      background: white; 
+      border-radius: 10px; 
+      cursor: pointer; 
+    }
+    #dobleOcupacion { 
+      position: absolute; 
+      right: 250px; 
+      top: 60px; 
+      width: 75px; 
+      height: 100px; 
+      background: white; 
+      border-radius: 10px; 
+      cursor: pointer; 
+    }
+    #RuedaFija, #via, #eje {
+      position: absolute; 
+      right: 50px; 
+      background: grey; 
+      border-radius: 10px;
+    }
+    #RuedaFija { 
+      top: 60px; 
+      width: 50px; 
+      height: 100px; 
+      background: whitesmoke; 
+    }
+    #via { 
+      top: 150px; 
+      width: 185px; 
+      height: 10px; 
+      background: grey; 
+    }
+    #eje { 
+      top: 100px; 
+      width: 185px; 
+      height: 10px; 
+      background: #ff6b26; 
+    }
+    #CV_din { 
+      margin-top: 220px; 
+      text-align: center; 
+      position: relative; 
+      z-index: 1; 
+    }
+    .logo {
+      position: relative;
+      left: 50px; /* Ajusta este valor para desplazar hacia la derecha */
+    }
+    .Title {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .Title img {
+      width: 150px;
+      display: block;
+      margin: 0 auto;
+    }
+    .Station {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+    #StationName {
+      font-size: 48px;
+      font-weight: bold;
+      color: white;
+      margin: 0;
+      user-select: none;
+    }
+  </style>
+</head>
+<body style="background-color: rgb(32, 32, 32)">
+    <!-- Workaround since the lib does not support import as ES module. -->
+    <script src="../assets/logger.min-B5tPUEvh.js"></script>
+    <script>
+      const supported = window.customElements && document.body.attachShadow;
+      if (!supported) {
+        alert(
+          'You are using an old unsupported browser. \nPlease upgrade the browser to be able to use the ITS950 Dashboard.'
+        );
+      }
+    </script>
+
+<!-- Contenedor del botón deslizadera para el tipo de ancho -->
+  <div id="RuedaFija" style="
+  position: absolute;
+  right: 50px;
+  top: 60px;
+  width: 185px;
+  height: 100px;
+  border-radius: 10px;
+  float: right;
+  background-color: rgb(11, 11, 11);"></div>
+    <div id="via" style="
+    position: absolute;
+    right: 50px;
+    top: 150px;
+    width: 185px;
+    height: 10px;
+    float: right;
+    background-color: grey;"></div>
+    <div id="eje" style="
+    position: absolute;
+    right: 50px;
+    top: 100px;
+    width: 185px;
+    height: 10px;
+    background-color: rgb(255, 107, 38);"></div>
+    <div id="RuedaFija" style="
+    position: absolute;
+    right: 50px;
+    top: 60px;
+    width: 50px;
+    height: 100px;
+    border-radius: 10px;
+    float: right;
+    background-color: whitesmoke;"></div>
+    <button class="details-button" id="TipoAncho" style="
+    position: absolute;
+    right: 150px;
+    top: 60px;
+    float: right;
+    width: 50px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px"
+    >Ancho Común</button>
+
+    <button class="dobleOcupacion" id="dobleOcupacion" style="
+    position: absolute;
+    right: 250px;
+    top: 60px;
+    float: right;
+    width: 75px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px"
+    >Ocupación simple</button>
+
+<div class="Title" style="text-align: center; padding-top: 20px;">
+  <h1 style="font-family: 'Open Sans', bold; font-size: 3em; color: #fff; margin: 0;">
+    Exceltic unofficial App X Alstom Ebilock
+  </h1>
+  <div style="display: flex; justify-content: flex-start; gap: 10px; margin-top: 10px; margin-left: 30px;">
+    <img src="Assets/ExcelticNoBack.png" style="margin-left: 30px; width: 200px; height: auto;">
+    <img src="Assets/alstom-logo-white.svg" class="logo">
+  </div>
+  <div class="Station">
+    <h2 id="StationName">Estación</h2>
+  </div>
+
+  <!-- A partir de aqui, la interfaz de señales se gestiona desde js
+       Los CV ya se ha creado interfaz -->
+  <div id="CV_din"></div>
+
+  <script type="module" src="./ojo_din.js"></script>
+</body>
+</html>
