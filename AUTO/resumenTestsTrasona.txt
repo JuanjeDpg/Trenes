@@ -1,0 +1,17 @@
+RESUMEN DE LOS TEST DE TRASONA
+
+TEST 9. AG1: OK
+TEST 9. AG3: OK
+TEST 9. AG5: OK
+TEST 9. AG7: OK
+----------------
+TEST 10. AG1: OK
+TEST 10. AG3: OK
+TEST 10. AG5: OK
+TEST 10. AG7: OK
+----------------
+TEST 11. AG1: OK
+TEST 11. AG3: OK
+TEST 11. AG5: OK
+TEST 11. AG7: OK
+----------------

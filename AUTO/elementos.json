@@ -1,0 +1,120 @@
+{
+    "Agujas":{
+        "AG1":{
+            "posicionX": 553, 
+            "posicionY": 735,
+            "aspa":"SuperiorDerecha",
+			"ruta":{
+				"comentario":"Senales cuya ruta enclava la aguja",
+				"senalInicio":"E1",
+				"senalFin":"S11A"
+				},
+			"lineaComandos":"TR A1",
+			"CV":"A1",
+			"AGconjugada":"AG3"
+        },
+        "AG3":{
+            "posicionX": 592,
+            "posicionY": 651, 
+            "aspa":"InferiorIzquierda",
+			"ruta":{
+				"comentario":"Senales cuya ruta enclava la aguja",
+				"senalInicio":"E1",
+				"senalFin":"S12A"
+				},
+			"lineaComandos":"TR A3",
+			"CV":"A3",
+			"AGconjugada":"AG1"
+        },
+        "AG5":{
+            "posicionX": 888,
+            "posicionY": 651, 
+            "aspa":"InferiorDerecha",
+			"ruta":{
+				"comentario":"Senales cuya ruta enclava la aguja",
+				"senalInicio":"S12A",
+				"senalFin":"S12"
+				},
+			"lineaComandos":"TR A5",
+			"CV":"A5",
+			"AGconjugada":"AG7"
+        },
+        "AG7":{
+            "posicionX": 928,
+            "posicionY": 735, 
+            "aspa":"SuperiorIzquierda",
+			"ruta":{
+				"comentario":"Senales cuya ruta enclava la aguja",
+				"senalInicio":"S12A",
+				"senalFin":"S11"
+				},
+			"lineaComandos":"TR A7",
+			"CV":"A7",
+			"AGconjugada":"AG5"
+        }
+    },
+	"Senales":{
+		"E1":{
+            "posicionX": 344, 
+            "posicionY": 762
+        },
+        "S11A":{
+            "posicionX": 863,
+            "posicionY": 762
+        },
+        "S12A":{
+            "posicionX": 858,
+            "posicionY": 625
+        },
+        "S12":{
+            "posicionX": 1454,
+            "posicionY": 628
+        },
+        "S11":{
+            "posicionX": 1454,
+            "posicionY": 759
+        }
+	},
+	"CV":{
+		"A1":{
+			"botonOcuparX":234,
+			"botonOcuparY":376
+		},
+		"A3":{
+			"botonOcuparX":234,
+			"botonOcuparY":307
+		},
+		"A5":{
+			"botonOcuparX":537,
+			"botonOcuparY":283
+		},
+		"A7":{
+			"botonOcuparX":476,
+			"botonOcuparY":378
+		}
+	},
+	"BotonesGenerales":{
+		"lineaComandos":{
+            "posicionX": 120, 
+            "posicionY": 1010
+        },
+        "anularComando":{
+            "posicionX": 100,
+            "posicionY": 1050
+        },
+        "aceptar":{
+            "posicionX": 250,
+            "posicionY": 1050
+        },
+        "RAL":{
+            "posicionX": 1085,
+            "posicionY": 1000
+        },
+        "ME":{
+            "posicionX": 1085,
+            "posicionY": 1050
+        }
+	},
+	"IP":"192.168.80.171",
+	"ComentarioIP":"Lanzar ipconfig para ver la IP actual de las máquinas y ajustar este"
+}
