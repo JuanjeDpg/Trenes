@@ -1,0 +1,67 @@
+{
+    "Agujas":{
+        "AG4":{
+            "posicionX": 566, 
+            "posicionY": 576,
+            "aspa":"SuperiorIzquierda",
+			"ruta":{
+				"comentario":"Senales cuya ruta enclava la aguja",
+				"senalInicio":"E2",
+				"senalFin":"S22"
+				},
+			"lineaComandos":"A4",
+			"CV":"A4",
+			"AGconjugada":"AG2"
+        }
+    },
+	"Senales":{
+		"E2":{
+            "posicionX": 440, 
+            "posicionY": 590
+        },
+        "S22":{
+            "posicionX": 877,
+            "posicionY": 590
+        }
+	},
+	"CV":{
+		"A1":{
+			"botonOcuparX":234,
+			"botonOcuparY":376
+		},
+		"A3":{
+			"botonOcuparX":234,
+			"botonOcuparY":307
+		},
+		"A5":{
+			"botonOcuparX":537,
+			"botonOcuparY":283
+		},
+		"A7":{
+			"botonOcuparX":476,
+			"botonOcuparY":378
+		}
+	},
+	"BotonesGenerales":{
+		"lineaComandos":{
+            "posicionX": 200, 
+            "posicionY": 930
+        },
+        "borrar":{
+            "posicionX": 860,
+            "posicionY": 930
+        },
+        "ejecutar":{
+            "posicionX": 790,
+            "posicionY": 930
+        },
+        "RAL":{
+            "posicionX": 1760,
+            "posicionY": 930
+        },
+        "ME":{
+            "posicionX": 1690,
+            "posicionY": 930
+        }
+	}
+}
